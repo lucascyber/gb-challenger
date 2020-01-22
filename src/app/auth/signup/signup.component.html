@@ -4,7 +4,7 @@
   </div>
   <div class="login-box" fxFlex="30">
     <mat-card>
-      <h2>Faça seu cadastro</h2>
+      <h4 class="text-color-green-base">Faça seu cadastro</h4>
       <form>
         <div fxLayout="column">
           <mat-form-field>
@@ -27,9 +27,11 @@
             <input formControlName="passwordConfirm" matInput placeholder="Confirme sua senha" type="password">
           </mat-form-field>
 
-          <mat-card-actions fxLayout="column" fxLayoutAlign="center center" >
-            <button  mat-flat-button color="primary" type="submit">Cadastre-se</button>
-            <span>Já possui um cadastro? <a href="#">Entre na sua conta</a></span>
+          <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+            <button mat-flat-button color="primary" type="submit">Cadastre-se</button>
+            <span class="text">Já possui um cadastro? <a href="#" routerLink="/cadastro/login"
+                class="text-color-green-medium">Entre na sua
+                conta</a></span>
           </mat-card-actions>
         </div>
       </form>

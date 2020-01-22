@@ -1,1 +1,28 @@
+<section class="main-login bg-green-medium" fxLayout="row" fxLayoutAlign="space-around center">
+  <div class="call-box" fxFlex="30">
+    <img src="../../../assets/images/logo-boticario-hero.png" alt="">
+  </div>
+  <div class="login-box" fxFlex="30">
+    <mat-card>
+      <h4 class="text-color-green-base">Entre na sua conta</h4>
+      <form>
+        <div fxLayout="column">
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="E-mail">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="password" matInput placeholder="Senha" type="password">
+          </mat-form-field>
+
+          <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+            <button mat-flat-button color="primary" type="submit">Entrar</button>
+            <span class="text">Não possui cadastro? <a href="#" routerLink="/cadastro"
+                class="text-color-green-medium">Crie sua conta</a></span>
+          </mat-card-actions>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</section>
 <p>login works!</p>
