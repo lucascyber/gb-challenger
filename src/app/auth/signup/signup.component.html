@@ -13,7 +13,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input formControlName="cpf" matInput placeholder="CPF">
+            <input formControlName="cpf" matInput placeholder="CPF" mask="000.000.000-00">
             <mat-error *ngIf="signUpForm.get('cpf').invalid">{{cpfValidationHandler()}}</mat-error>
           </mat-form-field>
 
@@ -21,17 +21,14 @@
             <input formControlName="email" matInput placeholder="E-mail">
             <mat-error *ngIf="signUpForm.get('email').invalid">{{emailValidationHandler()}}</mat-error>
           </mat-form-field>
-
+          
           <mat-form-field>
             <input formControlName="password" matInput placeholder="Senha" type="password">
-          </mat-form-field>
-
-          <mat-form-field>
-            <input formControlName="passwordConfirm" matInput placeholder="Confirme sua senha" type="password">
+            <mat-error *ngIf="signUpForm.get('password').invalid">{{passwordValidationHandler()}}</mat-error>
           </mat-form-field>
 
           <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
-            <button mat-flat-button color="primary" type="submit">Cadastre-se</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="signUpForm.invalid">Cadastre-se</button>
             <span class="text">Já possui um cadastro? <a href="#" routerLink="/cadastro/login"
                 class="text-color-green-medium">Entre na sua
                 conta</a></span>

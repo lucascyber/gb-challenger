@@ -80,3 +80,7 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 .mat-button-base {
   color: #fff !important;
 }
+
+.mat-form-field-subscript-wrapper {
+  padding-bottom: 0.5rem;
+}

@@ -5,18 +5,20 @@
   <div class="login-box" fxFlex="30">
     <mat-card>
       <h4 class="text-color-green-base">Entre na sua conta</h4>
-      <form>
+      <form [formGroup]="loginForm">
         <div fxLayout="column">
           <mat-form-field>
             <input formControlName="email" matInput placeholder="E-mail">
+            <mat-error *ngIf="loginForm.get('email').invalid">{{emailValidationHandler()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="password" matInput placeholder="Senha" type="password">
+            <mat-error *ngIf="loginForm.get('password').invalid">{{passwordValidationHandler()}}</mat-error>
           </mat-form-field>
 
           <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
-            <button mat-flat-button color="primary" type="submit">Entrar</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Entrar</button>
             <span class="text">Não possui cadastro? <a href="#" routerLink="/cadastro"
                 class="text-color-green-medium">Crie sua conta</a></span>
           </mat-card-actions>

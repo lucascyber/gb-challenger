@@ -21,7 +21,6 @@ export class SignupComponent implements OnInit {
       email: this.fb.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       cpf: this.fb.control('', [Validators.required, GenericValidator.isValidCpf()]),
       password: this.fb.control('', [Validators.required, Validators.pattern(this.passwordPattern)]),
-      passwordConfirm: this.fb.control('', [Validators.required])
     });
   }
 

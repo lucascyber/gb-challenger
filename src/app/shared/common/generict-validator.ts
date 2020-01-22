@@ -55,17 +55,4 @@ export class GenericValidator {
       return null;
     };
   }
-
-  // Confirm e-mail validation
-  static equalsToPassword(group: AbstractControl): { [key: string]: boolean } {
-    const password = group.get('password')
-    const passwordConfirmation = group.get('passwordConfirm');
-    if (!password || !passwordConfirmation) {
-      return undefined;
-    }
-    if (password.value !== passwordConfirmation.value) {
-      return { passwordNotMatch: true };
-    }
-    return undefined;
-  }
 }
