@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { GenericValidator } from 'src/app/shared/common/generict-validator';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,9 +10,10 @@ import { GenericValidator } from 'src/app/shared/common/generict-validator';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   signUpForm: FormGroup;
+  sucessSignUp: boolean = false;
   passwordPattern = /[!@#$%^&*(),.?":{}|<>0-9]/g;
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -42,6 +44,17 @@ export class SignupComponent implements OnInit {
   cpfValidationHandler() {
     return this.signUpForm.get('cpf').hasError('required') ? 'Este campo é obrigatório' :
       this.signUpForm.get('cpf').hasError('cpfNotValid') ? 'CPF não é válido' : '';
+  }
+
+  signUp() {
+    if (this.signUpForm.valid) {
+      this.authService.signUp(this.signUpForm.value).subscribe(
+        user => {
+          if (user) {
+            this.sucessSignUp = true;
+          }
+        });
+    }
   }
 
 }

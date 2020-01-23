@@ -2,10 +2,11 @@
   <div class="call-box" fxFlex="30">
     <img src="../../../assets/images/logo-boticario-hero.png" alt="">
   </div>
-  <div class="login-box" fxFlex="30">
+  <div class="login-box" fxFlex="30" *ngIf="!sucessSignUp">
+    <app-loader></app-loader>
     <mat-card>
       <h4 class="text-color-green-base">Faça seu cadastro</h4>
-      <form [formGroup]="signUpForm">
+      <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
         <div fxLayout="column">
           <mat-form-field>
             <input formControlName="name" matInput placeholder="Nome">
@@ -35,6 +36,13 @@
           </mat-card-actions>
         </div>
       </form>
+    </mat-card>
+  </div>
+
+  <div class="login-box" fxFlex="30"  *ngIf="sucessSignUp">
+    <mat-card fxLayout="column" fxLayoutAlign="center center">
+      <h4 class="text-color-green-base">Cadastro efetuado</h4>
+      <button mat-flat-button color="primary" type="button" routerLink="/cadastro/login">Entre na sua conta</button>
     </mat-card>
   </div>
 </section>
