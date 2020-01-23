@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { CoreModule } from '../core/core.module';
  
 export const options: Partial<IConfig> | (() => Partial<IConfig>) ={};
 
@@ -15,6 +16,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) ={};
   declarations: [LoginComponent, SignupComponent],
   imports: [
     CommonModule,
+    CoreModule,
     AuthRoutingModule,
     SharedModule,
     FormsModule,

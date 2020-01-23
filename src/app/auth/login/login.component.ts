@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
-  
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
+
   loginForm: FormGroup;
 
   ngOnInit() {
@@ -25,6 +26,17 @@ export class LoginComponent implements OnInit {
 
   passwordValidationHandler() {
     return this.loginForm.get('password').hasError('required') ? 'Este campo é obrigatório' : '';
+  }
+
+  signIn() {
+    if (this.loginForm.valid) {
+      this.authService.signIn(this.loginForm.value).subscribe(
+        user => {
+          if (user) {
+            localStorage.setItem("accessToken", user.accessToken);
+          }
+        })
+    }
   }
 
 }

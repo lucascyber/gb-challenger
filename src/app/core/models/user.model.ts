@@ -3,5 +3,5 @@ export interface User {
   email: string
   password: string
   cpf: string
-  profiles: string[]
+  profiles?: string[]
 }

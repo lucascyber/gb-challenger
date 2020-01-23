@@ -3,9 +3,10 @@
     <img src="../../../assets/images/logo-boticario-hero.png" alt="">
   </div>
   <div class="login-box" fxFlex="30">
+    <app-loader></app-loader>
     <mat-card>
       <h4 class="text-color-green-base">Entre na sua conta</h4>
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginForm" (ngSubmit)="signIn()">
         <div fxLayout="column">
           <mat-form-field>
             <input formControlName="email" matInput placeholder="E-mail">
