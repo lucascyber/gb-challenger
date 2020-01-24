@@ -2,21 +2,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PanelGuard } from './core/guards/panel.guard';
+import { SignUpGuard } from './core/guards/signup.guard';
 
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'cadastro',
-    pathMatch: 'full'
-  },
-  {
     path: 'cadastro',
     loadChildren: () =>
       import(`./auth/auth.module`).then(m => m.AuthModule),
+    canLoad: [SignUpGuard],
   },
   {
-    path: 'meu-oboticario',
+    path: '',
     loadChildren: () =>
       import(`./panel/panel.module`).then(m => m.PanelModule),
     canLoad: [PanelGuard]

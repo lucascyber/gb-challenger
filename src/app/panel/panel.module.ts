@@ -6,13 +6,16 @@ import { CashbackComponent } from './cashback/cashback.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { PanelGuard } from '../core/guards/panel.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { PanelTemplateComponent } from './panel-template/panel-template.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [CashbackComponent, ProdutosComponent],
+  declarations: [CashbackComponent, ProdutosComponent, PanelTemplateComponent],
   imports: [
     CommonModule,
-    PanelRoutingModule
+    PanelRoutingModule,
+    SharedModule
   ],
   providers: [
     PanelGuard
