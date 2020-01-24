@@ -4,11 +4,12 @@ import { AuthService } from './services/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { PanelGuard } from './guards/panel.guard';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     HttpClientModule
@@ -16,6 +17,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
   providers: [
     AuthService,
     LoaderService,
+    PanelGuard,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ]
 })

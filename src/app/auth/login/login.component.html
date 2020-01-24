@@ -9,7 +9,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="signIn()">
         <div fxLayout="column">
           <mat-form-field>
-            <input formControlName="email" matInput placeholder="E-mail">
+            <input formControlName="email" matInput placeholder="E-mail" type="email">
             <mat-error *ngIf="loginForm.get('email').invalid">{{emailValidationHandler()}}</mat-error>
           </mat-form-field>
 

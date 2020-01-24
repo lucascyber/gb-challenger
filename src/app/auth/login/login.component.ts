@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   loginForm: FormGroup;
 
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
       this.authService.signIn(this.loginForm.value).subscribe(
         user => {
           if (user) {
-            localStorage.setItem("accessToken", user.accessToken);
+            localStorage.setItem('accessToken', user.accessToken);
+            this.router.navigate(['meu-oboticario'])
           }
         })
     }

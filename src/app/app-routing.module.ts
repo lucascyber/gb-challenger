@@ -1,6 +1,7 @@
-  
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PanelGuard } from './core/guards/panel.guard';
 
 
 const routes: Routes = [
@@ -14,12 +15,12 @@ const routes: Routes = [
     loadChildren: () =>
       import(`./auth/auth.module`).then(m => m.AuthModule),
   },
-  // {
-  //   path: 'home',
-  //   loadChildren: () =>
-  //     import(`./home/home.module`).then(m => m.HomeModule),
-  //   canLoad: [HomeGuard]
-  // }
+  {
+    path: 'meu-oboticario',
+    loadChildren: () =>
+      import(`./panel/panel.module`).then(m => m.PanelModule),
+    canLoad: [PanelGuard]
+  }
 ];
 
 @NgModule({

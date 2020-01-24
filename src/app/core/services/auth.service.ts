@@ -4,13 +4,15 @@ import { Observable } from 'rxjs';
 import { Login } from '../models/login.model';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, public jwt: JwtHelperService) { }
 
   api = {
     usersLogin: `${environment.api}/users/login`,
@@ -24,5 +26,13 @@ export class AuthService {
   signUp(user: User): Observable<User> {
     return this._http.post<User>(this.api.user, user);
   }
+  public loginCheck(): boolean {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      return !this.jwt.isTokenExpired(token);
+    } else {
+      return false;
+    }
 
+  }
 }
