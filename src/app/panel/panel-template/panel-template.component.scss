@@ -1,3 +1,45 @@
+@import '../../../assets/style/base/colors';
+
 .panel-content {
   padding: 2rem 2em;
+}
+
+.menu {
+  width: 100%;
+  padding: 2rem 0;
+
+  &__list {
+
+    &__item {
+      padding: 0.5rem 0.5em;
+      cursor: pointer;
+      font-size: 14px;
+      border-bottom: 1px #ccc solid;
+      position: relative;
+      outline: none;
+
+      &:hover,
+      &--active {
+        background: #ccc;
+        font-weight: bold;
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          height: 100%;
+          width: 5px;
+          background: palette(green, medium);
+          top: 0;
+          right: 0;
+          z-index: 10;
+        }
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
 }
