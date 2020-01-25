@@ -20,9 +20,10 @@
 
       &:hover,
       &--active {
-        background: #ccc;
+        background: palette(grey, lightest);
         font-weight: bold;
-
+        border-bottom-color: #fff;
+        
         &:after {
           content: '';
           display: block;

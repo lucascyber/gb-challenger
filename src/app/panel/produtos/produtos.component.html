@@ -1,1 +1,40 @@
-<p>produtos works!</p>
+<h1 class="text-color-green-dark">Meus produtos</h1>
+
+<section class="product-set">
+  <mat-divider></mat-divider>
+  <h4 class="text-color-green-medium">Adicione um produto</h4>
+  <div fxLayout="row wrap" fxLayoutAlign="start center">
+    <form class="product-set__form" fxFlex="35">
+      <mat-form-field appearance="outline">
+        <mat-label>Digite o código</mat-label>
+        <input matInput placeholder="Código" type="text" autocomplete="off">
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="mat-elevation-z0" type="submit">Procurar</button>
+    </form>
+
+    <mat-card class="product-set__product" fxFlex="65" fxLayout="row wrap" fxLayoutAlign="space-between center">
+
+      <div fxLayout="row wrap" fxLayoutAlign="start start">
+        <div class="product-set__product__image">
+          <img
+            src="https://boticario.vteximg.com.br/arquivos/ids/190060-500-500/Floratta_Blue_Des_Colonia_75_ml_25458_frontal.jpg?v=636414155995830000"
+            alt="">
+        </div>
+
+        <div class="product-set__product__info" fxLayout="column" fxLayoutAlign="start start">
+          <h5 class="text-color-green-medium">Nome do produto</h5>
+          <span class="text"><strong>Código: </strong>12223</span>
+          <span class="text"><strong>Preço: </strong>{{1212 | currency: 'BRL': true}}</span>
+          <span class="text"><strong>Cashback: </strong>{{0.05 | percent}}</span>
+        </div>
+      </div>
+
+      <div class="product-set__product__button" fxFlexAlign="center">
+        <button mat-raised-button color="primary" class="mat-elevation-z0" type="button">Adicionar</button>
+      </div>
+    </mat-card>
+
+  </div>
+
+  <mat-divider></mat-divider>
+</section>

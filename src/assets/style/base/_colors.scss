@@ -10,12 +10,16 @@
 
 
 // Configuração da paleta de cores
-$palette: (green: (base :#008179,
+$palette: (
+    green: (
+    base :#008179,
     medium :#00a499,
     light :#1a9f68,
     dark :#1a5150,
   ),
-  grey: (lightest: #ddd, light : #ccc,
+  grey: (
+    lightest: #ddd, 
+    light : #ccc,
     base :#787a7a,
     dark :#4a4a4a,
   ),

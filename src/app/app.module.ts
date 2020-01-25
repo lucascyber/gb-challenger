@@ -6,6 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { JwtModule } from '@auth0/angular-jwt';
+import localePtBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import {LOCALE_ID} from '@angular/core';
+registerLocaleData(localePtBr);
 
 export function tokenGetter() {
   return localStorage.getItem('accessToken');
@@ -26,7 +30,12 @@ export function tokenGetter() {
     }),
     CoreModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
