@@ -7,6 +7,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { PanelGuard } from './guards/panel.guard';
 import { LoginGuard } from './guards/login.guard';
 import { SignUpGuard } from './guards/signup.guard';
+import { ProductsService } from './services/products.service';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,7 @@ import { SignUpGuard } from './guards/signup.guard';
     PanelGuard,
     LoginGuard,
     SignUpGuard,
+    ProductsService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ]
 })
