@@ -1,8 +1,7 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$my-custom-primary-color: (
-  50 : #008179,
+$my-custom-primary-color: (50 : #008179,
   100 : #00a499,
   200 : #1a9f68,
   300 : #1a5150,
@@ -16,8 +15,7 @@ $my-custom-primary-color: (
   A200 : #e9e7ff,
   A400 : #b9b4ff,
   A700 : #a29bff,
-  contrast: (
-    50 : #000000,
+  contrast: (50 : #000000,
     100 : #000000,
     200 : #000000,
     300 : #000000,
@@ -31,11 +29,9 @@ $my-custom-primary-color: (
     A200 : #000000,
     A400 : #000000,
     A700 : #000000,
-  )
-);
+  ));
 
-$my-custom-accent-color: (
-  50 : #fae6e6,
+$my-custom-accent-color: (50 : #fae6e6,
   100 : #f3c1c1,
   200 : #eb9898,
   300 : #e26e6f,
@@ -49,8 +45,7 @@ $my-custom-accent-color: (
   A200 : #ffb9b9,
   A400 : #ff8686,
   A700 : #ff6d6d,
-  contrast: (
-    50 : #000000,
+  contrast: (50 : #000000,
     100 : #000000,
     200 : #000000,
     300 : #000000,
@@ -64,12 +59,11 @@ $my-custom-accent-color: (
     A200 : #000000,
     A400 : #000000,
     A700 : #000000,
-  )
-);
+  ));
 
 $my-app-primary: mat-palette($my-custom-primary-color, 100);
-$my-app-accent:  mat-palette($my-custom-accent-color, 500, 900, A100);
-$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-accent: mat-palette($my-custom-accent-color, 500, 900, A100);
+$my-app-warn: mat-palette($mat-deep-orange);
 
 $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
@@ -77,8 +71,13 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 // Cutom elements
 
-.mat-raised-button {
+.mat-raised-button,
+.mat-flat-button {
   color: #fff !important;
+}
+
+.mat-form-field-label {
+  padding-bottom: 0.5rem
 }
 
 .mat-form-field-subscript-wrapper {

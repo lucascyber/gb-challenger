@@ -11,6 +11,7 @@ import { registerLocaleData } from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ErrorComponent } from './shared/components/error/error.component';
 registerLocaleData(localePtBr);
 
 export function tokenGetter() {

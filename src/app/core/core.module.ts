@@ -8,11 +8,15 @@ import { PanelGuard } from './guards/panel.guard';
 import { LoginGuard } from './guards/login.guard';
 import { SignUpGuard } from './guards/signup.guard';
 import { ProductsService } from './services/products.service';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ErrorComponent } from '../shared/components/error/error.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    SharedModule
   ],
   exports: [
     HttpClientModule
@@ -24,7 +28,8 @@ import { ProductsService } from './services/products.service';
     LoginGuard,
     SignUpGuard,
     ProductsService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ]
 })
 export class CoreModule { }

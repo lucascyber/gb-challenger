@@ -1,6 +1,7 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row fxLayout="row" fxLayoutAlign="center center">
+<mat-toolbar color="primary" class="top-bar">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
     <img src="../../../assets/images/logo-boticario-branco.png" alt="">
+    <button mat-button class="top-bar__button" (click)="doLogout()">Sair</button>
   </mat-toolbar-row>
 </mat-toolbar>
 

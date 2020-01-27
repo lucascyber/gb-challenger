@@ -1,5 +1,13 @@
 @import '../../../assets/style/base/colors';
 
+.top-bar {
+  &__button {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
 .panel-content {
   padding: 2rem 2em;
 }
@@ -23,7 +31,7 @@
         background: palette(grey, lightest);
         font-weight: bold;
         border-bottom-color: #fff;
-        
+
         &:after {
           content: '';
           display: block;

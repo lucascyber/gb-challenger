@@ -5,8 +5,8 @@
   <mat-divider></mat-divider>
   <h4 class="text-color-green-medium">Adicione um produto</h4>
   <div fxLayout="row wrap" fxLayoutAlign="start center">
-    <form 
-      [formGroup]="productForm" (ngSubmit)="getProduct()" class="product-set__form" fxFlex="35">
+    <form [formGroup]="productForm" fxLayout="column" fxLayoutAlign="start end" (ngSubmit)="getProduct()"
+      class="product-set__form" fxFlex="25">
       <mat-form-field appearance="outline">
         <mat-label>Digite o código</mat-label>
         <input formControlName="code" matInput placeholder="Código" type="text" autocomplete="off">
@@ -44,8 +44,7 @@
 </section>
 
 <section *ngIf="userProducts?.length > 0" class="product-list">
-  <table  lass="product-list__table" mat-table [dataSource]="userProducts"
-    class="mat-elevation-z0">
+  <table lass="product-list__table" mat-table [dataSource]="userProducts" class="mat-elevation-z0">
     <ng-container matColumnDef="code">
       <th mat-header-cell *matHeaderCellDef> <span class=" text text-color-green-medium">Código</span> </th>
       <td mat-cell *matCellDef="let p"> {{p.product.codigoProduto}} </td>
@@ -73,18 +72,19 @@
 
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef> <span class=" text text-color-green-medium">Status</span> </th>
-      <td mat-cell *matCellDef="let p" [ngSwitch]="p.produtoStatus"> 
+      <td mat-cell *matCellDef="let p" [ngSwitch]="p.produtoStatus">
         <span *ngSwitchCase="'VALIDACAO'">Avaliação</span>
         <span *ngSwitchCase="'APROVADO'">Aprovado</span>
         <span *ngSwitchCase="'REJEITADO'">Rejeitado</span>
-        </td>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef> <span class=" text text-color-green-medium"></span> </th>
       <td mat-cell *matCellDef="let p">
-        <button [disabled]="p.produtoStatus != 'VALIDACAO'" mat-icon-button (click)="deleteUserProducts(p._id)">
-          <mat-icon >delete</mat-icon>
+        <button [disabled]="p.produtoStatus != 'VALIDACAO'" mat-icon-button (click)="deleteUserProducts(p._id)"
+          class="text-color-grey-dark">
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

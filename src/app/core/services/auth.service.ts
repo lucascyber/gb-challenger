@@ -5,6 +5,7 @@ import { Login } from '../models/login.model';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  constructor(private _http: HttpClient, public jwt: JwtHelperService) { }
+  constructor(private _http: HttpClient, public jwt: JwtHelperService, public router: Router) { }
 
   api = {
     usersLogin: `${environment.api}/users/login`,
@@ -33,6 +34,10 @@ export class AuthService {
     } else {
       return false;
     }
+  }
 
+  logout() {
+    localStorage.removeItem('accessToken');
+    this.router.navigate(['cadastro/login']);
   }
 }

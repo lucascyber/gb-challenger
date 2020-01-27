@@ -1,7 +1,7 @@
 @import '../../../assets/style/base/colors';
 
 .product-set {
-  
+
   mat-divider {
     width: 100%;
     margin: 1.5em 0;
@@ -9,9 +9,6 @@
 
   &__form {
     width: 100%;
-    button {
-      margin: 0 1.5em;
-    }
 
     mat-form-field {
       width: 280px;
@@ -19,7 +16,7 @@
   }
 
   &__product {
-    margin-top: 1rem;
+    margin: 1rem 0 0 3em;
 
     mat-card-actions {
       float: right;
@@ -34,19 +31,18 @@
         width: 100%;
       }
     }
-    
+
     &__info {
       h5 {
         margin: 0 0 .5rem 0;
       }
+
       .text {
         margin: .2rem 0;
       }
     }
 
-    &__button {
-      
-    }
+    &__button {}
   }
 }
 
@@ -57,12 +53,13 @@
   table {
     width: 100%;
 
-    th, td {
+    th,
+    td {
       padding: 1rem 1em;
     }
 
     th {
-      font-weight: 600; 
+      font-weight: 600;
     }
   }
 }
