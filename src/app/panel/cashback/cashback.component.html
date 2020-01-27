@@ -1,1 +1,7 @@
-<p>cashback works!</p>
+<app-loader></app-loader>
+<h1 class="text-color-green-dark">Meus cashbacks</h1>
+
+<mat-card>
+  <h4 class="text-color-grey-dark">Total de cashback a receber:</h4>
+  <h1 class="text-color-green-medium">{{cashbackData?.cashback | currency: 'BRL' }}</h1>
+</mat-card>
