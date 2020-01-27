@@ -1,5 +1,7 @@
-.product-set {
+@import '../../../assets/style/base/colors';
 
+.product-set {
+  
   mat-divider {
     width: 100%;
     margin: 1.5em 0;
@@ -44,6 +46,23 @@
 
     &__button {
       
+    }
+  }
+}
+
+.product-list {
+  width: 100%;
+  margin-top: 5rem;
+
+  table {
+    width: 100%;
+
+    th, td {
+      padding: 1rem 1em;
+    }
+
+    th {
+      font-weight: 600; 
     }
   }
 }

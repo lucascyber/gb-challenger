@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
 
 
 //Teste para buscar os produtos
-describe('Validar recebmento de produtos', () => {
+describe('Validar recebimento de produtos', () => {
   const product: Product = {
     _id: "5e2790a915949023f7ec8087",
     codigoProduto: 25458,
@@ -38,3 +38,28 @@ describe('Validar recebmento de produtos', () => {
     })
   }));
 });
+
+//Teste na adicção de produtos do usuário
+
+describe('Validar adição de produto', ()=> {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [
+        ProductsService,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true,
+        }
+      ]
+    });
+  });
+
+  it('Deve retornar se o produto foi adicionado', inject([ProductsService], (service: ProductsService) => {
+    let productId = {produto: "12"}
+    service.addUserProducts(productId).subscribe(res => {
+      expect(res.length).toBe(5)
+    })
+  }));
+})
