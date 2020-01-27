@@ -43,7 +43,7 @@
   <mat-divider></mat-divider>
 </section>
 
-<section *ngIf="userProducts.length > 0" class="product-list">
+<section *ngIf="userProducts?.length > 0" class="product-list">
   <table  lass="product-list__table" mat-table [dataSource]="userProducts"
     class="mat-elevation-z0">
     <ng-container matColumnDef="code">
