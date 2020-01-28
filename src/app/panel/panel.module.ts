@@ -9,10 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PanelTemplateComponent } from './panel-template/panel-template.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SobreComponent } from './sobre/sobre.component';
 
 
 @NgModule({
-  declarations: [CashbackComponent, ProdutosComponent, PanelTemplateComponent],
+  declarations: [CashbackComponent, ProdutosComponent, PanelTemplateComponent, SobreComponent],
   imports: [
     CommonModule,
     PanelRoutingModule,

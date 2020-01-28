@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
 
 
 //Teste para buscar os produtos
-describe('Validar recebimento de produtos', () => {
+describe('Get Product', () => {
   const product: Product = {
     _id: "5e2790a915949023f7ec8087",
     codigoProduto: 25458,
@@ -34,14 +34,14 @@ describe('Validar recebimento de produtos', () => {
 
   it('Deve retornar dados do tipo Product', inject([ProductsService], (service: ProductsService) => {
     service.getProduct(25458).subscribe(res => {
-      expect(res).toEqual(product)
-    })
+      expect(res).toEqual(product);
+    });
   }));
 });
 
 //Teste na adicção de produtos do usuário
 
-describe('Validar adição de produto', ()=> {
+describe('Add Product', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
@@ -57,9 +57,9 @@ describe('Validar adição de produto', ()=> {
   });
 
   it('Deve retornar se o produto foi adicionado', inject([ProductsService], (service: ProductsService) => {
-    let productId = {produto: "12"}
+    const productId = { produto: 25458 };
     service.addUserProducts(productId).subscribe(res => {
-      expect(res.length).toBe(5)
+      expect(res.length).toBe(1);
     })
   }));
 })
